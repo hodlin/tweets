@@ -25,6 +25,8 @@ SECRET_KEY = '7am!%w72e$$&ia)^xc2^_qpe%ug-e5+$u3=t^kosl%inrek98-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEMPLATE_DEBUG = True
+
 ALLOWED_HOSTS = []
 
 
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'mytweets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +70,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mytweets.wsgi.application'
+# TEMPLATE_DIRS = (BASE_DIR + '/templates/')
+
+# TEMPLATE_LOADERS = (
+#     'django.template.loaders.filesystem.Loader',
+#     'django.template.loaders.app_directories.Loader', 
+#     )
+
+# WSGI_APPLICATION = 'mytweets.wsgi.application'
 
 
 # Database
@@ -118,4 +127,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATICFILES_DIRS = (
+os.path.join(
+os.path.dirname(__file__),
+'static',
+),
+)
+
 STATIC_URL = '/static/'
+
+
