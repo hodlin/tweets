@@ -25,8 +25,6 @@ SECRET_KEY = '7am!%w72e$$&ia)^xc2^_qpe%ug-e5+$u3=t^kosl%inrek98-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -39,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user_profile',
+    'tweets',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -128,11 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATICFILES_DIRS = (
-os.path.join(
-os.path.dirname(__file__),
-'static',
-),
-)
+    BASE_DIR + '/static/',
+    )
 
 STATIC_URL = '/static/'
 
