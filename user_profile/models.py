@@ -5,14 +5,14 @@ from django.contrib.auth.models import AbstractBaseUser
 
 
 class User(AbstractBaseUser):
-	"""Custom user class"""
+    """Custom user class"""
 
-	username = models.CharField('username', max_length=10, unique=True, db_index=True)
-	email = models.EmailField('email_adress', unique=True)
-	joined = models.DateTimeField(auto_now_add=True)
-	is_active = models.BooleanField(default=True)
-	is_admin = models.BooleanField(default=False)
-	
-	USERNAME_FIELD = 'username'
-	def __unicode__(self):
-		return self.username
+    username = models.CharField('username', max_length=10, unique=True, db_index=True)
+    email = models.EmailField('email_adress', unique=True)
+    joined = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+    
+    USERNAME_FIELD = 'username'
+    def __unicode__(self):
+        return self.username

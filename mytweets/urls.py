@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from tweets.views import Index, Profile
+from tweets.views import Index, Profile, PostTweet, HashTagCloud, Search
+
 admin.autodiscover()
 
 urlpatterns = [
-	url(r'^$', Index.as_view()),
+    url(r'^$', Index.as_view()),
     url(r'^user/(\w+)/$', Profile.as_view()),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^user/(\w+)/post/$', PostTweet.as_view()),
+    url(r'^hashtag/(\w+)/$', HashTagCloud.as_view()),
+    url(r'^search/$', Search.as_view()),
 ]
